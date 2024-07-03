@@ -1,0 +1,66 @@
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+h1{
+    text-align: center;
+    padding-top: 2%;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar{
+    width: 100%;
+    max-width: 800px;
+    height: 250px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.header{
+    background-color: rgb(32, 37, 93); /* Set background color of image*/
+    color: #fff; /* Set text color */
+    padding: 20px; /* Add padding */
+    border-radius: 8px 8px 0 0; /* Apply border radius to top corners */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.header img {
+    border-radius: 90%;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;/* Add space below the image */
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 10px;
+}
+.section h2 {
+    border-bottom: 2px solid rgb(32, 37, 93);
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}

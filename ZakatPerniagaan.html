@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- Custom CSS-->
+        <link rel="stylesheet" href="css/ZakatPerniagaan.css">
+
+        <title>Kalkulator Zakat Perniagaan</title>
+
+        <script>
+            // Function to include content from another HTML file into a specified element
+            function includeContent(url, elementId) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById(elementId).innerHTML = data;
+                    });
+            }
+
+            // Event listener to include header after the DOM content is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                includeContent('header.html', 'header-placeholder');
+            });
+
+            function calculateZakatPerniagaan() {
+                // Retrieve values from input fields
+                var pendapatanTunai = parseFloat(document.getElementById("pendapatanTunai").value) || 0;
+                var nilaiInventori = parseFloat(document.getElementById("nilaiInventori").value) || 0;
+                var nilaiKredit = parseFloat(document.getElementById("nilaiKredit").value) || 0;
+                var perbelanjaan = parseFloat(document.getElementById("perbelanjaan").value) || 0;
+                var hutangPerniagaan = parseFloat(document.getElementById("hutangPerniagaan").value) || 0;
+
+                // Calculate income
+                var income = pendapatanTunai + nilaiInventori + nilaiKredit - perbelanjaan - hutangPerniagaan;
+
+                // Define Zakat Rate
+                var zakatRate = 2.5 / 100; // 0.025
+
+                // Calculate the Zakat amount
+                var zakatPerniagaanAmount = income * zakatRate;
+
+                // Display the zakat amount in the result input field
+                document.getElementById("zakatPerniagaanAmount").value = "RM" + zakatPerniagaanAmount.toFixed(2);
+
+                // Check if income meets the nisab requirement
+                var nisab = 24007.00; // Example nisab amount
+                if (income< nisab) {
+                    document.getElementById("explanation").innerText = "You did not qualify because did not reach the nisab";
+                }
+            }
+
+            function resetForm() {
+                document.getElementById("zakatForm").reset();
+                document.getElementById("zakatPerniagaanAmount").value = "RM0.00";
+                document.getElementById("explanation").innerText = "";
+            }
+        </script>
+    </head>
+    <body>
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        <!-- Placeholder for header content to be included -->
+        <div id="header-placeholder"></div>
+
+        <h2>Business Zakat Nisab</h2>
+
+        <!-- Start of table -->
+        <table>
+            <!-- Row 1 header -->
+            <tr class="header1">
+                <th>Year</th>
+                <th>Month</th>
+                <th>Price(RM)</th>
+            </tr>
+            <!-- End of row 1 -->
+
+            <!-- Row 2 -->
+            <tr>
+                <td>2024</td>
+                <td>January - June</td>
+                <td>24,007.00</td>
+            </tr>
+            <!-- End of row 2 -->
+
+            <!-- Row 3 -->
+            <tr>
+                <td>2023</td>
+                <td>July - December</td>
+                <td>23,035.00</td>
+            </tr>
+            <!-- End of row 3 -->
+        </table><br><br>
+
+        <!-- Container -->
+        <div class="container">
+            <div class="sidebar">
+                <div class="header">
+                    <h2>Pay Zakat on Business</h2>
+                    <p>Here is the amount of RM……. as I pay Zakat on Business which is obligatory on myself /the party I represent for the year ………… in the name of Allah SWT.</p>
+
+                    <h2>In the Qur’an, Allah SWT says (which means):</h2>
+                    <p>"O you who have believed! Spend from the good things which you have earned and from that which We have produced for you from the earth." <br>(Surah Al-Baqarah 267)
+
+                        <br><br>According to Tafsir al-Tabari, this verse means, "Give zakat from the good of what you earn by conducting business or manufacturing, from gold and silver."</p>
+                        <br>Inventory: Stock of goods including raw materials and items for sale.
+                        <br>Expenses: Includes employee salaries, office or sales site rent, electricity bills, and so on. <br>
+                </div>
+                <!-- End of header class -->
+
+                <div class="container">
+                    <div class="main-content">
+                        <h2>Zakat on Business Calculator</h2>
+                        <form id="zakatForm">
+                            <!-- Input fields -->
+                            <label for="pendapatanTunai">Cash income (including in bank) & capitalmoney (RM):</label><br>
+                            <input type="text" id="pendapatanTunai" name="pendapatanTunai" class="form-control form-control-sm"><br>
+
+                            <label for="nilaiInventori">Inventory Value (RM):</label><br>
+                            <input type="text" id="nilaiInventori" name="nilaiInventori" class="form-control form-control-sm"><br>
+
+                            <label for="nilaiKredit">Credit value (such as business loans) (RM):</label><br>
+                            <input type="text" id="nilaiKredit" name="nilaiKredit" class="form-control form-control-sm"><br>
+
+                            <label for="perbelanjaan">Expenses (RM):</label><br>
+                            <input type="text" id="perbelanjaan" name="perbelanjaan" class="form-control form-control-sm"><br>
+
+                            <label for="hutangPerniagaan">Business Liabilities (RM):</label><br>
+                            <input type="text" id="hutangPerniagaan" name="hutangPerniagaan" class="form-control form-control-sm"><br>
+
+                            <!-- Calculate button -->
+                            <button type="button" onclick="calculateZakatPerniagaan()" class="btn btn-primary">Calculate</button><br><br>
+
+                            <!-- Output -->
+                            <label for="zakatPerniagaanAmount">Total Business Zakat You Need To Pay:</label><br>
+                            <input type="text" id="zakatPerniagaanAmount" name="zakatPerniagaanAmount" class="form-control form-control-sm" value="RM0.00" readonly><br>
+                            
+                            <!-- Reset button -->
+                            <button type="button" onclick="resetForm()" class="btn btn-secondary">Reset</button><br><br>
+
+                    
+
+                            <p id="explanation"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

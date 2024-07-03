@@ -1,0 +1,94 @@
+
+
+h2{
+  text-align: center;
+  padding-top: 50px;
+}
+
+table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin: auto;/*table to center*/
+
+
+}  
+
+td, th {
+ border: 1px solid white;
+ text-align: left;
+ padding: 8px;
+}
+
+th{
+  color:white
+}
+
+.header1{
+  background-color: rgb(32, 37, 93);
+}
+tr:nth-child(3){
+  background-color: gainsboro;
+}
+
+p{
+  text-align: center;
+}
+h1{
+  text-align: center;
+  padding-top: 2%;
+}
+
+.container{
+  position: relative;
+  width: 100%;
+  padding: 2rem;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar{
+  width: 100%;
+  max-width:100%;
+  height: 900px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+
+.header{
+  background-color: rgb(32, 37, 93); /* Set background color of image*/
+  color: #fff; /* Set text color */
+  padding: 20px; /* Add padding */
+  border-radius: 8px 8px 0 0; /* Apply border radius to top corners */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+
+
+.main-content{
+  text-align: center;
+}
+
+.main-content h2{
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.custom-form-control {
+  padding: 0.25rem 0.5rem; /* Adjust padding as needed */
+  font-size: 0.875rem; /* Adjust font size as needed */
+  height: auto; /* Ensure height adjusts with padding and font size */
+}
+.header h2{
+  font-size: 25px;
+  font-weight: bold;
+}
