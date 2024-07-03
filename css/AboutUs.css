@@ -1,9 +1,4 @@
-/* Example media query for smaller screens */
-@media (max-width: 768px) {
-    .main-content {
-        text-align: center;
-    }
-}
+
 
 body {
     font-family: Arial, sans-serif;
